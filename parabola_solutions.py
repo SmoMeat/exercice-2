@@ -1,11 +1,30 @@
-# Auteur: Mathieu Ducharme
-# Date: 27 janvier 2024
+"""Imprime les solutions d'une parabole.
+
+Ce fichier permet d'imprimer à la console les solutions d'une équation du second dégré de la
+forme ax²+bx+c et ce, meme s'il n'existe qu'une seule ou tout simplement pas de solutions.
+
+@Date: 27 janvier 2024
+@Author: Mathieu Ducharme
+@Contact: mathieu.ducharme@umontreal.ca
+@Matricule: 20297456
+"""
 
 from math import sqrt
 
-def get_solutions_of_parabola(a: float, b: float, c: float) -> [float]: # make args float or int
+def get_solutions_of_parabola(a: int | float, b: int | float, c: int | float) -> [float]:
+    """
+    Cette fonction retourne une liste contenant toutes les solutions réelles d'une équation du second degré de la forme ax²+bx+c où a≠0.
+    Args:
+        a (int ou float): coefficient associé à x puissance 2
+        b (int ou float): coefficient associé à x puissance 1
+        c (int ou float): coefficient associé à x puissance 0
+    Returns:
+        liste de float: une liste contenant des floats représentant les solutions (si aucune solution réelle n'existe, la liste est vide)
+    """
+
     discriminant = b**2 - 4 * a * c
     solutions = []
+
     if discriminant < 0:
         return solutions
     
@@ -18,15 +37,27 @@ def get_solutions_of_parabola(a: float, b: float, c: float) -> [float]: # make a
 
     return solutions
 
-def print_solutions_of_parabola(a, b, c):
-    solutions = get_solutions_of_parabola(a, b, c)
-    if len(solutions) == 0:
-        return print(f"Il n'existe aucune solution à l'équation {a}x²+{b}x+{c}")
-    if len(solutions) == 1:
-        return print(f"La solution à l'équation {a}x²+{b}x+{c} est {solutions[0]}")
-    return print(f"Les solutions à l'équation {a}x²+{b}x+{c} sont {solutions[0]} et {solutions[1]}")
+def print_solutions_of_parabola(a: int | float, b: int | float, c: int | float) -> None:
+    """
+    Cette fonction imprime à la console toutes les solutions réelles d'une équation du second degré de la forme ax²+bx+c où a≠0.
+    Args:
+        a (int ou float): coefficient associé à x puissance 2
+        b (int ou float): coefficient associé à x puissance 1
+        c (int ou float): coefficient associé à x puissance 0
+    """
 
-if __name__ == '__main__':
+    solutions = get_solutions_of_parabola(a, b, c)
+
+    if len(solutions) == 0:
+        print(f"Il n'existe aucune solution à l'équation {a}x²+{b}x+{c}")
+        return
+    if len(solutions) == 1:
+        print(f"La solution à l'équation {a}x²+{b}x+{c} est {solutions[0]}")
+        return
+    
+    print(f"Les solutions à l'équation {a}x²+{b}x+{c} sont {solutions[0]} et {solutions[1]}")
+
+if __name__ == '__main__': # Cette section appelle la fonction pour imprimer à la console les solutions aux 3 équations demandées lorsque le fichier est lancé par lui-meme
     print_solutions_of_parabola(2, 5, 2)
     print_solutions_of_parabola(1, 2, 1)
     print_solutions_of_parabola(2, 2, 2)
