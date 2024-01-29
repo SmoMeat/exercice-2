@@ -1,7 +1,7 @@
-"""Imprime les solutions d'une parabole.
+"""parabola_solutions.py : Imprime les solutions d'une parabole
 
-Ce fichier permet d'imprimer à la console les solutions d'une équation du second dégré de la
-forme ax²+bx+c et ce, meme s'il n'existe qu'une seule ou tout simplement pas de solutions.
+Ce fichier permet d'imprimer à la console les solutions réelles d'une équation du second dégré de
+la forme ax²+bx+c et ce, meme s'il n'existe qu'une seule ou tout simplement pas de solutions.
 
 @Date: 27 janvier 2024
 @Author: Mathieu Ducharme
