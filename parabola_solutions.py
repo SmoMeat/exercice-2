@@ -1,7 +1,9 @@
 """parabola_solutions.py : Imprime les solutions d'une parabole
 
 Ce fichier permet d'imprimer à la console les solutions réelles d'une équation du second dégré de
-la forme ax²+bx+c et ce, meme s'il n'existe qu'une seule ou tout simplement pas de solutions.
+la forme ax²+bx+c et ce, meme s'il n'existe qu'une seule ou tout simplement pas de solutions, en
+utilisant la fameuse formule quadratique x = (-b ± sqrt(b²-4ac)) / 2a. Pour plus d'informations,
+consultez 'https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/la-formule-quadratique-m1134'.
 
 @Date: 27 janvier 2024
 @Author: Mathieu Ducharme
@@ -57,7 +59,7 @@ def print_solutions_of_parabola(a: int | float, b: int | float, c: int | float) 
     
     print(f"Les solutions à l'équation {a}x²+{b}x+{c} sont {solutions[0]} et {solutions[1]}")
 
-if __name__ == '__main__': # Cette section appelle la fonction pour imprimer à la console les solutions aux 3 équations demandées lorsque le fichier est lancé par lui-meme
+if __name__ == '__main__':
     print_solutions_of_parabola(2, 5, 2)
     print_solutions_of_parabola(1, 2, 1)
     print_solutions_of_parabola(2, 2, 2)
