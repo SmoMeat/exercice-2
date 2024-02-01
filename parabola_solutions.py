@@ -13,6 +13,9 @@ consultez 'https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/la-formule-quad
 
 from math import sqrt
 
+# Transforme un float/int en string et ajoute le signe '+' pour indiquer si le résultat est positif ou négatif
+formatted_float = lambda num: str(num) if num < 0 else '+' + str(num)
+
 parabolas = [
     {"a": 2, "b": 5, "c": 2},   # Premier polynome
     {"a": 1, "b": 2, "c": 1},   # Deuxième polynome
@@ -27,15 +30,15 @@ for parabola in parabolas:
     discriminant = b**2 - 4 * a * c     # Discriminant (Δ) pour déterminer cmb de solutions existent
 
     if discriminant < 0: # Cas avec 0 solution
-        print(f"Il n'existe aucune solution à l'équation {a}x²{b:+}x{c:+}.")
+        print("Il n'existe aucune solution à l'équation", str(a)+"x²"+formatted_float(b)+"x"+formatted_float(c))
         continue
 
     first_solution = (-b + sqrt(discriminant)) / (2 * a)    # Solution de la plus grande selon la formule quadratique
 
     if discriminant == 0: # Cas avec 1 solution
-        print(f"La solution à l'équation {a}x²{b:+}x{c:+} est {first_solution}.")
+        print("La solution à l'équation", str(a)+"x²"+formatted_float(b)+"x"+formatted_float(c), "est", first_solution)
         continue
 
     second_solution = (-b - sqrt(discriminant)) / (2 * a)   # Solution de la plus petite selon la formule quadratique
 
-    print(f"Les solutions à l'équation {a}x²{b:+}x{c:+} sont {first_solution} et {second_solution}.")
+    print("Les solutions à l'équation", str(a)+"x²"+formatted_float(b)+"x"+formatted_float(c), "sont", first_solution, "et", second_solution)
