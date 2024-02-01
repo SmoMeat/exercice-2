@@ -27,15 +27,15 @@ for parabola in parabolas:
     discriminant = b**2 - 4 * a * c     # Discriminant (Δ) pour déterminer cmb de solutions existent
 
     if discriminant < 0: # Cas avec 0 solution
-        print(f"Il n'existe aucune solution à l'équation {a}x²+{b}x+{c}.")
+        print(f"Il n'existe aucune solution à l'équation {a}x²{b:+}x{c:+}.")
         continue
 
     first_solution = (-b + sqrt(discriminant)) / (2 * a)    # Solution de la plus grande selon la formule quadratique
 
     if discriminant == 0: # Cas avec 1 solution
-        print(f"La solution à l'équation {a}x²+{b}x+{c} est {first_solution}.")
+        print(f"La solution à l'équation {a}x²{b:+}x{c:+} est {first_solution}.")
         continue
 
     second_solution = (-b - sqrt(discriminant)) / (2 * a)   # Solution de la plus petite selon la formule quadratique
 
-    print(f"Les solutions à l'équation {a}x²+{b}x+{c} sont {first_solution} et {second_solution}.")
+    print(f"Les solutions à l'équation {a}x²{b:+}x{c:+} sont {first_solution} et {second_solution}.")
