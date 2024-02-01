@@ -27,18 +27,29 @@ for parabola in parabolas:
     b = parabola['b']   # coefficient associé à x puissance 1
     c = parabola['c']   # coefficient associé à x puissance 0
 
-    discriminant = b**2 - 4 * a * c     # Discriminant (Δ) pour déterminer cmb de solutions existent
+    # Définit un string de l'équation sous la forme ax²+bx+c et prend en considération le signe des coefs b et c pour éviter d'avoir
+    # par exemple 2x²+-3x+-2 (peut etre éviter si on n'utilise pas code boot avec f"{a}x²{b:+}x{c:+}")
+    parabola_string = str(a) + "x²" + (str(b) if b < 0 else '+' + str(b)) + "x" + (str(c) if c < 0 else '+' + str(c))
+
+    if a == 0:
+        print("L'équation", parabola_string, "n'est pas une équation du second degré")
+        continue
+
+    # Discriminant (Δ) pour déterminer cmb de solutions existent
+    discriminant = b**2 - 4 * a * c
 
     if discriminant < 0: # Cas avec 0 solution
-        print("Il n'existe aucune solution à l'équation", str(a)+"x²"+formatted_float(b)+"x"+formatted_float(c))
+        print("Il n'existe aucune solution à l'équation", parabola_string)
         continue
 
-    first_solution = (-b + sqrt(discriminant)) / (2 * a)    # Solution de la plus grande selon la formule quadratique
+    # Solution de la plus grande selon la formule quadratique
+    first_solution = (-b + sqrt(discriminant)) / (2 * a)
 
     if discriminant == 0: # Cas avec 1 solution
-        print("La solution à l'équation", str(a)+"x²"+formatted_float(b)+"x"+formatted_float(c), "est", first_solution)
+        print("La solution à l'équation", parabola_string, "est", first_solution)
         continue
+    
+    # Solution de la plus petite selon la formule quadratique
+    second_solution = (-b - sqrt(discriminant)) / (2 * a)
 
-    second_solution = (-b - sqrt(discriminant)) / (2 * a)   # Solution de la plus petite selon la formule quadratique
-
-    print("Les solutions à l'équation", str(a)+"x²"+formatted_float(b)+"x"+formatted_float(c), "sont", first_solution, "et", second_solution)
+    print("Les solutions à l'équation", parabola_string, "sont", first_solution, "et", second_solution)
