@@ -27,8 +27,8 @@ for parabola in parabolas:
     b = parabola['b']   # coefficient associé à x puissance 1
     c = parabola['c']   # coefficient associé à x puissance 0
 
-    # Définit un string de l'équation sous la forme ax²+bx+c et prend en considération le signe des coefs b et c pour éviter d'avoir
-    # par exemple 2x²+-3x+-2 (peut etre éviter si on n'utilise pas code boot avec f"{a}x²{b:+}x{c:+}")
+    # Définit un string de l'équation sous la forme ax²+bx+c et prend en considération le signe des coefs b et c pour
+    # éviter d'avoir par exemple 2x²+-3x+-2 (peut etre éviter si on n'utilise pas code boot avec f"{a}x²{b:+}x{c:+}")
     parabola_string = str(a) + "x²" + (str(b) if b < 0 else '+' + str(b)) + "x" + (str(c) if c < 0 else '+' + str(c))
 
     if a == 0:
